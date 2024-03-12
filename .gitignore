@@ -1,2 +1,9 @@
+node_modules
 .venv
-.DS_Store
+dist
+
+# Python
+__pycache__
+.ipynb_checkpoints
+
+
