@@ -2,8 +2,8 @@ import importlib.metadata
 import pathlib
 
 import anywidget
-import traitlets
 import numpy as np
+import traitlets
 
 try:
     __version__ = importlib.metadata.version("ipymario")
@@ -12,11 +12,12 @@ except importlib.metadata.PackageNotFoundError:
 
 
 colors = {
-  'O': [0, 0, 0, 255],
-  'X': [247, 82, 0, 255],
-  ' ': [247, 186, 119, 255],
+    "O": [0, 0, 0, 255],
+    "X": [247, 82, 0, 255],
+    " ": [247, 186, 119, 255],
 }
 
+# fmt: off
 box = [
     ['O', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'O'],
     ['X', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'O'],
@@ -35,8 +36,10 @@ box = [
     ['X', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', 'O'],
     ['O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'],
 ]
+# fmt: on
 
 np_box = np.array([[colors[c] for c in row] for row in box], dtype=np.uint8)
+
 
 class Widget(anywidget.AnyWidget):
     _esm = pathlib.Path(__file__).parent / "static" / "widget.js"
@@ -48,4 +51,4 @@ class Widget(anywidget.AnyWidget):
     animate = traitlets.Bool(True).tag(sync=True)
 
     def click(self):
-        self.send({ "type": "click" })
+        self.send({"type": "click"})
