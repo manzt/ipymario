@@ -1,5 +1,5 @@
 /**
- * Makes a Mario chime sound using A
+ * Makes a Mario chime sound using web `AudioContext` API.
  *
  * @see {@link https://twitter.com/mbostock/status/1765222176641437859}
  *
